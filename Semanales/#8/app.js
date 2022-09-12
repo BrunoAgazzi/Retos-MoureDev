@@ -4,21 +4,13 @@
  */
 
 
-const convertToBinary = decimalNumber => {
-    let restNumber = decimalNumber;
+const convertToBinary = decimalNumber => {  
     let binaryNumber = '';
-
-    for (let i = 1; i >= 1; i++ ){
-        console.log(1);
-        if (restNumber / 2 >= 2){
-            binaryNumber = binaryNumber + (restNumber % 2);
-            restNumber = restNumber / 2;
-        }
-        else {i =  0};
+    for( let restNumber = decimalNumber; restNumber >= 2; restNumber / 2  ){
+        restNumber = Math.floor(restNumber);
+        binaryNumber = binaryNumber + (restNumber % 2);
     }
-
     console.log(binaryNumber);
-
 }
 convertToBinary(100);
 
