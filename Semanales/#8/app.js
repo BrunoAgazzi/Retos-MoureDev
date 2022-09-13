@@ -6,11 +6,15 @@
 
 const convertToBinary = decimalNumber => {  
     let binaryNumber = '';
-    for( let restNumber = decimalNumber; restNumber >= 2; restNumber / 2  ){
-        restNumber = Math.floor(restNumber);
-        binaryNumber = binaryNumber + (restNumber % 2);
+    for( let i = 2; decimalNumber > 0; i ++  ){
+        if(decimalNumber >= 2){
+            binaryNumber= (decimalNumber % 2) + binaryNumber;
+            decimalNumber = Math.floor(decimalNumber/2);
+        }else{
+            binaryNumber= 1 + binaryNumber;
+            decimalNumber = 0;
+        }    
     }
     console.log(binaryNumber);
 }
-convertToBinary(100);
-
+convertToBinary(85);
