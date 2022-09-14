@@ -4,14 +4,16 @@
  */
 
 
-const factorial = number => {
-    
-    let rest = 1;
-    for (let i = 1; i <= number; i++) {
-        rest = rest * i ;
-        
-    } 
-    console.log(rest)
+let factorial = n => {
+   
+    if (n = 0){
+        return 1;
+
+    }
+    else 
+    return n * factorial(n - 1)
 }
 
 factorial(5);
+
+
