@@ -8,3 +8,31 @@
  * - Expresión balanceada: { [ a * ( c + d ) ] - 5 }
  * - Expresión no balanceada: { a * ( c + d ) ] - 5 }
  */
+
+
+const funcion = expresión =>{
+
+    let open = []
+    let closed= []
+    let balanceada = true;
+    for(let i = 0 ; i < expresión.length; i++ ){
+        let letter = expresión.charAt(i);
+        if(letter === '[' || letter === '{' || letter === '(') open.push(letter); 
+        else if(letter === ']' || letter === '}' || letter === ')') closed.unshift(letter); 
+    }
+    for(let i = 0 ; i < open.length; i++){
+        if(open[i] === '{'){
+            if (closed[i] !== '}') balanceada = false;
+        }else if(open[i] === '['){
+            if (closed[i] !== ']') balanceada = false;
+        }else if(open[i] === '('){
+            if (closed[i] !== ')') balanceada = false;
+        }
+    }
+    if(balanceada)console.log('Expresión balanceada');
+    else console.log('Expresión no balanceada');
+    
+}
+
+funcion('{ [ a * ( c + d ) ] - 5 }');
+funcion('{ a * ( c + d ) ] - 5 }');
