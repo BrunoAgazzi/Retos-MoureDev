@@ -10,18 +10,12 @@
 
 for (var i = 0; i <= 100 ; i++){
 	
-    var fizz = Number.isInteger(i / 3);
-    var buzz = Number.isInteger(i / 5);
+  var fizz = Number.isInteger(i / 3);
+  var buzz = Number.isInteger(i / 5);
 
-    if ( i == 0 ){
-    console.log(i);
-  }else if( fizz === true && buzz == false ){
-    console.log('fizz');
-  }else if( fizz == false  && buzz === true ){
-    console.log('buzz');
-  }else if( fizz === true && buzz === true){
-    console.log('fizzbuzz');
-  }else{
-    console.log(i);
-  }
+  if ( i == 0 )console.log(i);
+  else if( fizz === true && buzz === true)console.log('fizzbuzz');
+  else if( fizz === true )console.log('fizz');
+  else if( buzz === true ) console.log('buzz');
+  else console.log(i);
 }
