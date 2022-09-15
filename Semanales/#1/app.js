@@ -25,3 +25,4 @@ const anagramFuction = (word1, word2) => {
 
 
 anagramFuction('roma','mora');
+anagramFuction('roma','moras');
