@@ -11,12 +11,51 @@
  */
 
 
-console.tablet([
-    
-]);
 
-const myObj = { 
-    0: { apples: 2, oranges: 4, bananas: 7, melons: 0 }, 
-    1: { apples: 0, oranges: 10, bananas: 0, melons: 0 }, 
-    2: { apples: 0, oranges: 0, bananas: 0, melons: 5 } 
+
+
+let board = new Array(3);
+board[0] = new Array(3);
+board[1] = new Array(3);
+board[2] = new Array(3);
+board[0][0] = 'X';
+board[0][1] = 'X';
+board[1][0] = 'O';
+board[1][1] = 'X';
+board[0][2] = 'X';
+board[2][1] = 'O';
+board[1][2] = 'X';
+board[2][0] = 'O';
+board[2][2] = 'O';
+
+
+const checkWin = (board,type) => {
+    let result = false;
+
+    if((board[0][0]+board[0][1]+board[0][2] ) === type) result = true;
+    else if(board[1][0]+board[1][1]+board[1][2] === type) result = true;
+    else if((board[2][0]+board[2][1]+board[2][2]) === type) result = true;
+    else if((board[0][0]+board[1][0]+board[2][0]) === type) result = true;
+    else if((board[0][1]+board[1][1]+board[2][1]) === type) result = true;
+    else if((board[0][2]+board[1][2]+board[2][2]) === type) result = true;
+    else if((board[0][0]+board[1][1]+board[2][2]) === type) result = true;
+    else if((board[2][0]+board[1][1]+board[0][2]) === type) result = true;
+    return result;
 }
+
+
+const resultGame = board => {
+
+    let winX = checkWin(board,'XXX');
+    let winO = checkWin(board,'OOO');
+    console.table(board)
+    if(!winO && winX) console.log('Win X');
+    else if(winO && !winX) console.log('Win O');
+    else if(!winO && !winX) console.log('Empate');
+    else console.log('Nulo')
+}
+
+resultGame(board);
+
+
+
