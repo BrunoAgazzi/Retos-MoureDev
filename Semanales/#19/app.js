@@ -16,3 +16,6 @@ const changeHours = (days,hours,minutes,seconds) =>{
 }
 
 changeHours(1,2,20,40)
+
+
+
